@@ -6,21 +6,30 @@ st.set_page_config(page_title="Stroke Prediction App", page_icon="🧠", layout=
 st.title("Demo Final Project CS313")
 st.markdown("### Predict your chances of having a stroke 🧠")
 
-st.markdown("#### Personal Information")
+st.markdown("#### Information")
 col1, col2, col3 = st.columns(3)
 with col1:
-    name = st.text_input("Your name (*)")
-    married = st.radio("Married?", ["Unknown", "Yes", "No"], index=0)
-    if married == "Unknown":
-        married = None
-    residence = st.selectbox("Residence Type", ["Unknown", "Rural", "Urban"], index=0)\
-
-    if residence == "Unknown":
-        residence = None
+    name = st.text_input("Your name")
+    gender = st.selectbox("Gender", ["Male", "Female"], index=1)
+    married = st.radio("Married ?", ["Yes", "No"], index=0)
+    age = st.slider("Age", min_value=0, max_value=120, value=43, step=1)
+    
 
 with col2:
-    age = st.slider("Age (*)", min_value=0, max_value=120, value=30, step=1)
-    smoking_status = st.selectbox("Smoking Status", ["Unknown", "Never", "Formerly", "Smokes"], index=0)
+    
+    work_type = st.selectbox("Work Type", ["Private", "Self-employed", "Government", "Never worked", "Children"], index=0)
+    work_type_map = {
+        'Private': 'private',
+        'Self-employed': 'self-employed',
+        'Government': 'govt_job',
+        'Children': 'children',
+        'Never worked': 'never_worked',
+    }
+    work_type = work_type_map[work_type]
+
+    residence = st.selectbox("Residence Type", ["Rural", "Urban"], index=1)
+
+    smoking_status = st.selectbox("Smoking Status", ["Unknown", "Never", "Formerly", "Smokes"], index=1)
     
     smoking_map = {
         'Never': 'never smoked',
@@ -32,29 +41,12 @@ with col2:
     smoking_status = smoking_map[smoking_status]
 
 with col3:
-    gender = st.selectbox("Gender (*)", ["Male", "Female"], index=0)
-    work_type = st.selectbox("Work Type", ["Unknown", "Private", "Self-employed", "Government", "Never worked", "Children"], index=0)
-    work_type_map = {
-        'Private': 'private',
-        'Self-employed': 'self-employed',
-        'Government': 'govt_job',
-        'Children': 'children',
-        'Never worked': 'never_worked',
-    }
-    if work_type == 'Unknown':
-        work_type = None
-    else:
-        work_type = work_type_map[work_type]
+    hypertension = st.radio("Hypertension (*)", ["Yes", "No"], index=1)
+    bmi = st.slider("BMI (*)", min_value=10.0, max_value=50.0, value=28.0, step=0.1)
 
-st.markdown("#### Health Information")
-col4, col5, col6 = st.columns(3)
-with col4:
-    hypertension = st.radio("Hypertension (*)", ["Yes", "No"], index=0)
-    bmi = st.slider("BMI (*)", min_value=10.0, max_value=50.0, value=22.0, step=0.1)
-with col5:
     heart_disease = st.radio("Heart disease (*)", ["Yes", "No"], index=0)
-with col6:
-    glucose_level = st.slider("Average glucose level (*)", min_value=50.0, max_value=300.0, value=100.0, step=0.1)
+
+    glucose_level = st.slider("Average glucose level (*)", min_value=50.0, max_value=300.0, value=89.0, step=0.1)
 
 
 

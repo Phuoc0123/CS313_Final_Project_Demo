@@ -18,7 +18,7 @@ dict_null_value = {
     'hypertension': 0.0,
     'heart_disease': 0.0,
     'age': 43.0,
-    'avg_glucose_level': 89.039853,
+    'avg_glucose_level': .039853,
     'bmi': 28.112721,
 }
 
@@ -88,7 +88,7 @@ def get_advice_from_gemini(pred, instance, exp):
     final_text = (
         f"I am {instance['age'].iloc[0]} years old and I got predicted stroke with {pred[1]:.2f}%. Here is what model assumes that is relevant to my stroke prediction:\n"
         + text
-        + "\nGive me advice for each one above to improve how to reduce stroke prediction"
+        + "\nGive me advice for each one above to improve how to reduce stroke prediction ! Do not add additional information."
     )
     respone = generate_text(prompt=final_text)
     return respone
