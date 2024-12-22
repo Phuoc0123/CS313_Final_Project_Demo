@@ -1,0 +1,16 @@
+STT,Feature
+1,Gender
+2,Hypertension
+3,Heart Disease
+4,Age
+5,Average Glucose Level
+6,BMI
+7,Work Type - Private
+8,Work Type - Self-employed
+9,Work Type - Government
+10,Work Type - Children
+11,Work Type - Never worked
+12,Smoking Status - Never smoked
+13,Smoking Status - Formerly smoked
+14,Smoking Status - Smokes
+15,Smoking Status - Unknown
