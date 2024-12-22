@@ -42,7 +42,7 @@ with col2:
 
 with col3:
     hypertension = st.radio("Hypertension", ["Yes", "No"], index=1)
-    heart_disease = st.radio("Heart disease", ["Yes", "No"], index=0)
+    heart_disease = st.radio("Heart disease", ["Yes", "No"], index=1)
     bmi = st.slider("BMI", min_value=10.0, max_value=50.0, value=28.0, step=0.1)
 
     glucose_level = st.slider("Average glucose level", min_value=50.0, max_value=300.0, value=89.0, step=0.1)
